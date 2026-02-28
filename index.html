@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小程序产品作品集 - 专业能力与项目经验展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* 头部导航 */
+        .header {
+            background-color: #165DFF;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(22, 93, 255, 0.2);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        /* 容器 */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+        }
+        /* 通用模块样式 */
+        .module {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .module:hover {
+            transform: translateY(-5px);
+        }
+        .module-title {
+            font-size: 1.8rem;
+            color: #165DFF;
+            border-left: 4px solid #165DFF;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        /* 个人简介 */
+        .profile-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        .profile-tag {
+            font-size: 1.1rem;
+            background-color: #e8f3ff;
+            color: #165DFF;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .profile-skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        .profile-skills p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        /* 项目概览 */
+        .overview-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .overview-item {
+            background: #f8f9fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid #165DFF;
+        }
+        .overview-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #165DFF;
+        }
+        /* 项目经验 */
+        .project-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+        .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .project-company {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #222;
+        }
+        .project-info {
+            display: flex;
+            gap: 1.5rem;
+            color: #666;
+            font-size: 1rem;
+        }
+        .project-content ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        .project-content li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+        .project-content li::before {
+            content: "●";
+            color: #165DFF;
+            position: absolute;
+            left: 0;
+        }
+        /* 能力总结 */
+        .ability-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .ability-item {
+            background: #f8f9fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .ability-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #165DFF;
+            text-align: center;
+            border-bottom: 2px solid #e8f3ff;
+            padding-bottom: 0.5rem;
+        }
+        .ability-item p {
+            text-align: center;
+            line-height: 1.8;
+        }
+        /* 联系方式 */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        .contact-item {
+            min-width: 200px;
+        }
+        .contact-item a {
+            color: #165DFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        .qrcode {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #eee;
+            padding: 5px;
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+        .qrcode img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 底部 */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 1rem;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+        .footer strong {
+            color: #165DFF;
+        }
+        /* 图片样式 */
+        .img-box {
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .img-box:hover img {
+            transform: scale(1.05);
+        }
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .module {
+                padding: 1.5rem;
+            }
+            .module-title {
+                font-size: 1.5rem;
+            }
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+        <h1>小程序产品作品集</h1>
+        <p>专业能力与项目经验展示 | 运营经理 / 产品运营经理</p>
+    </header>
+
+    <div class="container">
+        <!-- 个人简介模块 -->
+        <section class="module">
+            <h2 class="module-title">个人简介</h2>
+            <div class="profile-content">
+                <div class="profile-skills">
+                    <p>资深产品运营专家 | 数字化转型实践者</p>
+                    <div class="profile-tag-group">
+                        <span class="profile-tag">小程序产品策划与运营</span>
+                        <span class="profile-tag">数字化生态搭建</span>
+                        <span class="profile-tag">活动营销与招商赋能</span>
+                        <span class="profile-tag">供应链资源整合</span>
+                    </div>
+                    <p style="margin-top: 1rem;">从用户需求出发，策划并推动小程序产品的设计、开发与迭代；整合多业态资源，构建线上线下联动的数字化商业生态，兼具产品策划、运营落地、资源整合的全链路能力。</p>
+                </div>
+                <!-- 个人简介主图，替换src为实际图片地址 -->
+                <div class="img-box" style="flex: 1; min-width: 300px;">
+                    <img src="tmp/404855688962_pptx_0_ppt_media_image1.jpeg" alt="小程序产品运营主视觉">
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目概览模块 -->
+        <section class="module">
+            <h2 class="module-title">项目概览</h2>
+            <p>聚焦数字化转型核心方向，覆盖多行业小程序产品策划与运营，实现从产品设计到商业落地的全流程赋能，核心方向如下：</p>
+            <div class="overview-list">
+                <div class="overview-item">
+                    <h4>物业管理与文旅数字化</h4>
+                    <p>策划小程序数字化产品，提升园区商业氛围与用户体验，覆盖供应链优化、文旅IP打造、商家服务三大板块。</p>
+                </div>
+                <div class="overview-item">
+                    <h4>互联网软件SaaS运营</h4>
+                    <p>负责零售/餐饮/美业/园区SaaS小程序运营，覆盖全省目标商家，实现产品规模化增长。</p>
+                </div>
+                <div class="overview-item">
+                    <h4>建材新零售数字化转型</h4>
+                    <p>构建B2B2C/B2B/C2C小程序矩阵，服务全国经销商，打通品牌线上线下链路。</p>
+                </div>
+                <div class="overview-item">
+                    <h4>数字文旅内容与活动策划</h4>
+                    <p>打造轻量级数字文旅小程序平台，策划系列PR活动，沉淀内容运营与大型活动执行经验。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目经验模块 -->
+        <section class="module">
+            <h2 class="module-title">项目经验</h2>
+            <!-- 项目一 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-company">佛山市盈宇企业管理有限公司</div>
+                    <div class="project-info">
+                        <span>物业管理/文旅行业</span>
+                        <span>运营经理</span>
+                        <span>2024.6 - 2025.11</span>
+                    </div>
+                </div>
+                <!-- 项目图片，替换src为实际图片地址 -->
+                <div class="img-box">
+                    <img src="tmp/404855688962_pptx_18_ppt_media_image31.png" alt="盈宇企业管理项目落地">
+                </div>
+                <div class="project-content">
+                    <ul>
+                        <li>平台产品策划：从供应链、文旅IP、商家服务三方面策划小程序数字化产品，实现园区服务全面线上化。</li>
+                        <li>活动策划与组织：落地主题市集、研学活动等系列线下活动，有效提升园区人气，打造浓厚商业氛围。</li>
+                        <li>供应链贸易整合：以一二产业带动第三产业为核心，整合供应链资源，搭建完整流畅的供应链服务系统。</li>
+                        <li>招商赋能：负责线上平台宣传与商家指导，为园区招商工作提供专业线上支持与数字化赋能。</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 项目二 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-company">启迪万众网络科技有限公司</div>
+                    <div class="project-info">
+                        <span>互联网软件</span>
+                        <span>产品运营经理</span>
+                        <span>2022.8 - 2024.3</span>
+                    </div>
+                </div>
+                <!-- 项目图片，替换src为实际图片地址 -->
+                <div class="img-box">
+                    <img src="tmp/404855688962_pptx_26_ppt_media_image33.png" alt="启迪万众SaaS小程序运营">
+                </div>
+                <div class="project-content">
+                    <ul>
+                        <li>产品策划与迭代：深度挖掘B端核心需求，对接开发团队，策划并迭代适配零售、餐饮、美业等多业态的SaaS小程序系统。</li>
+                        <li>活动营销提升GMV：组织多场线上线下联动营销活动，有效拉升平台GMV，为合作商家带来实际业绩增长。</li>
+                        <li>市场推广与交付：实现全省目标商家全覆盖，通过系统讲解、实操培训、运营陪跑，确保产品100%成功交付落地。</li>
+                        <li>数字化生态建立：联通各业态资源，打破信息孤岛，打造跨行业、高协同的数字化商业生态系统。</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 项目三 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-company">箭牌家居集团股份有限公司</div>
+                    <div class="project-info">
+                        <span>建材行业（新零售中心）</span>
+                        <span>运营经理</span>
+                        <span>2019.3 - 2022.7</span>
+                    </div>
+                </div>
+                <!-- 项目图片，替换src为实际图片地址 -->
+                <div class="img-box">
+                    <img src="tmp/404855688962_pptx_33_ppt_media_image31.png" alt="箭牌家居数字化转型">
+                </div>
+                <div class="project-content">
+                    <ul>
+                        <li>产品策划矩阵：明确品牌数字化升级需求，构建B2B2C、B2B、C2C三维小程序矩阵，大幅拓宽品牌销售渠道。</li>
+                        <li>全国市场管理：覆盖全国经销商网络，通过系统化培训与一对一运营陪跑，确保数字化工具在全国终端有效落地。</li>
+                        <li>活动营销提效：策划多轮线上线下联动营销活动，成功提升平台GMV，为品牌及经销商带来实质性业绩增长。</li>
+                        <li>服务与会员体系：以售后保养为核心切入点，建立标准化服务流程，成功沉淀一批高粘性的忠实品牌会员。</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 项目四 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-company">佛山大愿文化产业发展有限公司</div>
+                    <div class="project-info">
+                        <span>文旅行业</span>
+                        <span>文旅策划</span>
+                        <span>2018.6 - 2019.3</span>
+                    </div>
+                </div>
+                <!-- 项目图片，替换src为实际图片地址 -->
+                <div class="img-box">
+                    <img src="tmp/404855688962_pptx_41_ppt_media_image60.png" alt="大愿文化数字文旅项目">
+                </div>
+                <div class="project-content">
+                    <ul>
+                        <li>小程序平台策划与PR活动：打造轻量级数字文旅小程序应用平台，策划系列品牌PR活动，负责方案撰写与用户引导，积累活动策划与线上运营基础经验。</li>
+                        <li>内容创作与用户需求挖掘：深度调研文旅用户真实需求，输出景区游玩攻略、用户体验案例等优质内容，为后续私域内容运营奠定方法论基础。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 能力总结模块 -->
+        <section class="module">
+            <h2 class="module-title">能力总结</h2>
+            <div class="ability-list">
+                <div class="ability-item">
+                    <h4>产品能力</h4>
+                    <p>需求分析 · 产品策划 · 原型设计<br>项目管理 · 数据分析与迭代</p>
+                </div>
+                <div class="ability-item">
+                    <h4>运营能力</h4>
+                    <p>用户运营 · 活动运营 · 内容运营<br>渠道管理 · 商家赋能</p>
+                </div>
+                <div class="ability-item">
+                    <h4>营销能力</h4>
+                    <p>市场推广 · 品牌建设 · 活动策划<br>GMV提升 · 私域流量搭建</p>
+                </div>
+                <div class="ability-item">
+                    <h4>生态能力</h4>
+                    <p>资源整合 · 业态联动 · 供应链优化<br>服务体系搭建 · 会员体系运营</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系方式模块 -->
+        <section class="module">
+            <h2 class="module-title">联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-item">
+                    <div class="qrcode">
+                        <!-- 替换为实际微信二维码图片地址 -->
+                        <img src="tmp/二维码图片地址.png" alt="微信二维码">
+                    </div>
+                    <p style="margin-top: 0.8rem;">微信扫码添加</p>
+                </div>
+                <div class="contact-item">
+                    <p><strong>联系电话</strong></p>
+                    <p><a href="tel:15875772637">15875772637</a></p>
+                </div>
+                <div class="contact-item">
+                    <p><strong>电子邮箱</strong></p>
+                    <p><a href="mailto:1324017107@qq.com">1324017107@qq.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <p><strong>微信联系</strong></p>
+                    <p><a href="weixin://添加微信链接">15875772637</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <p><strong>Alex Chen</strong> | 持续学习，创造价值</p>
+        <p style="margin-top: 0.5rem;">© 2025 小程序产品作品集 版权所有</p>
+    </footer>
+</body>
+</html>
